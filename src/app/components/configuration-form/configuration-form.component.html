@@ -1,0 +1,65 @@
+<div class="container mt-5">
+    <h2>Formulaire de Configuration</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="type">Type</label>
+        <select id="type" class="form-control" [(ngModel)]="newCriteria.type" name="type" required>
+          <option value="" disabled>Sélectionner un type</option>
+          <option *ngFor="let type of availableTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="prefix">Préfixe</label>
+        <input type="text" class="form-control" id="prefix" [(ngModel)]="newCriteria.prefix" name="prefix" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="suffix">Suffixe</label>
+        <input type="text" class="form-control" id="suffix" [(ngModel)]="newCriteria.suffix" name="suffix" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="length">Longueur</label>
+        <input type="number" class="form-control" id="length" [(ngModel)]="newCriteria.length" name="length" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="order">Ordre</label>
+        <input type="number" class="form-control" id="order" [(ngModel)]="newCriteria.order" name="order" required>
+      </div>
+  
+      <button type="button" class="btn btn-primary" (click)="addCriteria()">Ajouter un critère</button>
+    </form>
+  
+    <h3 class="mt-4">Critères ajoutés</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Préfixe</th>
+          <th>Suffixe</th>
+          <th>Longueur</th>
+          <th>Ordre</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let criteria of criteriaList; let i = index">
+          <td>{{ criteria.type }}</td>
+          <td>{{ criteria.prefix }}</td>
+          <td>{{ criteria.suffix }}</td>
+          <td>{{ criteria.length }}</td>
+          <td>{{ criteria.order }}</td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="deleteCriteria(i)">
+              <i class="fas fa-trash-alt"></i> Supprimer
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <button type="submit" (click)="onSubmit()" class="btn btn-success">Sauvegarder la configuration</button>
+  </div>
+  

@@ -1,0 +1,71 @@
+<div class="container">
+    <h2>Générer un Numéro</h2>
+    <form (ngSubmit)="generateNumber()" #generateForm="ngForm">
+      <div class="form-group">
+        <label for="configurationId">Configuration ID</label>
+        <input
+          type="number"
+          class="form-control"
+          id="configurationId"
+          [(ngModel)]="generatedNumber.configurationId"
+          name="configurationId"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="firstName">Prénom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          [(ngModel)]="generatedNumber.firstName"
+          name="firstName"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Nom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          [(ngModel)]="generatedNumber.lastName"
+          name="lastName"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="birthDate">Date de naissance</label>
+        <input
+          type="date"
+          class="form-control"
+          id="birthDate"
+          [(ngModel)]="generatedNumber.birthDate"
+          name="birthDate"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="counter">Compteur</label>
+        <input
+          type="number"
+          class="form-control"
+          id="counter"
+          [(ngModel)]="generatedNumber.counter"
+          name="counter"
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Générer</button>
+    </form>
+  
+    <!-- Afficher le résultat en gras -->
+    <div *ngIf="generatedResult" class="mt-3">
+      <p><strong>Numéro généré: </strong><span>{{ generatedResult }}</span></p>
+    </div>
+  </div>
+  
