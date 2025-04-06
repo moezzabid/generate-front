@@ -14,7 +14,7 @@ export class ConfigurationFormComponent implements OnInit {
   newCriteria: NumberingCriteriaDTO = { type: '', prefix: '', suffix: '', length: parseInt(""), order: parseInt("") };
   criteriaList: NumberingCriteriaDTO[] = [];
   configuration: ConfigurationDTO = { id: parseInt(""), criteria: [] };
-  availableTypes = ['prénom', 'Nom', 'Date de naissance', 'compteur']; // Types disponibles initialement
+  availableTypes = ['first_name', 'last_name', 'birth_date', 'counter']; // Types disponibles initialement
 
   constructor(private numberingService: NumberingService) { }
 
